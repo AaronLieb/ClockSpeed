@@ -7,7 +7,6 @@
 #Author              : Aaron Lieberman
 #Email               : AaronLieberman@csu.fullerton.edu
 #Institution         : California State University, Fullerton
-#Course              : CPSC 240
 #
 #Copyright (C) 2020 Aaron Lieberman
 #This program is free software: you can redistribute
@@ -23,17 +22,14 @@
 echo "Assemble manager.asm"
 nasm -f elf64 -l manager.lis -o manager.o manager.asm
 
-echo "Assemble cpu.asm"
-nasm -f elf64 -l cpu.lis -o cpu.o cpu.asm
-
-echo "Assemble cpu_debug.asm"
-nasm -f elf64 -l cpu_debug.lis -o cpu_debug.o cpu_debug.asm
+echo "Assemble clock_speed.asm"
+nasm -f elf64 -l clock_speed.lis -o clock_speed.o clock_speed.asm
 
 echo "Compile main.c"
 gcc -c -Wall -m64 -no-pie -o main.o main.c -std=c11
 
 echo "Link the object files"
-g++ -m64 -no-pie -o a.out -std=c11 main.o manager.o cpu.o cpu_debug.o
+g++ -m64 -no-pie -o a.out -std=c11 main.o manager.o clock_speed.o
 
 echo "----- Run the program -----"
 ./a.out

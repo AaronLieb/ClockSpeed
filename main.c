@@ -1,15 +1,12 @@
 /*
-Program Name        : Manager
+Program Name        : Main 
 Programming Language: C
 Program Description : This program manages the single asm function
-                      In this project, which calculates the
-					  area of a triangle by using the length of 
-					  the three inputted lengths
+                      start, which prints out the users clock speed 
 
 Author              : Aaron Lieberman
 Email               : AaronLieberman@csu.fullerton.edu
 Institution         : California State University, Fullerton
-Course              : CPSC 240
 
 Copyright (C) 2020 Aaron Lieberman
 This program is free software: you can redistribute
@@ -28,8 +25,6 @@ A copy of the GNU General Public License v3 is available here:
 int start(); 
 
 int main() {
-
 	start();
-
 	return 0;
 }

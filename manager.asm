@@ -1,11 +1,11 @@
-;Program Name        : Main (Harmonic Sum)
+;Program Name        : Manager
 ;Programming Language: x86 Assembly
-;Program Description : This file is responsible for 
+;Program Description : This file is responsible for printing the clock speed
+;                      recieved from clock_speed.asm
 ;
 ;Author              : Aaron Lieberman
 ;Email               : AaronLieberman@csu.fullerton.edu
 ;Institution         : California State University, Fullerton
-;Course              : CPSC 240
 ;
 ;Copyright (C) 2020 Aaron Lieberman
 ;This program is free software: you can redistribute
@@ -18,13 +18,10 @@
 ;<https://www.gnu.org/licenses/>.
 
 extern printf      ; c function
-extern scanf       ; c function
-extern read_clock  ; user defined function
-extern getfreq     ; Professor's user defined function
-extern cpuinfo 
-extern cpuinfo_debug
+extern clock_speed ; user defined functino
 
 section .data
+	output db "Your clock speed is %f GHz", 10, 0
 
 section .text
 	global start 
@@ -47,15 +44,15 @@ start:
 	push r14
 	push r15
 	pushf
-	push rax
 
 	xor rax, rax
-	call cpuinfo
-	xor rax, rax
-	call cpuinfo_debug
+	call clock_speed
+	
+	mov rax, 1
+	mov rdi, output
+	call printf
 
 	; 17 pops
-	pop rax
 	popf
 	pop r15
 	pop r14
