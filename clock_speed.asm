@@ -21,9 +21,9 @@
 extern printf
 extern atof
 
-section .text
-	global clock_speed
+global clock_speed
 
+section .text
 clock_speed:
 	; 15 pushes
 	push rbp

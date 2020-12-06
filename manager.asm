@@ -23,11 +23,11 @@ extern clock_speed ; user defined functino
 section .data
 	output db "Your clock speed is %f GHz", 10, 0
 
-section .text
-	global start 
+global start 
 
+section .text
 start:
-	; 17 pushs
+	; 15 pushs
 	push rbp
 	mov rbp, rsp
 	push rbx
@@ -52,7 +52,7 @@ start:
 	mov rdi, output
 	call printf
 
-	; 17 pops
+	; 15 pops
 	popf
 	pop r15
 	pop r14
